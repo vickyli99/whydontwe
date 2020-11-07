@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { TitleComponent } from './TitleComponent';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 // withTitle function
 const withTitle = ({ component: Component, title }) => {
@@ -52,19 +53,17 @@ function BasicExample() {
 	return (
 		<Router>
 			<div>
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/about">About</Link>
-					</li>
-					<li>
-						<Link to="/other">Log in or Create an Account</Link>
-					</li>
-				</ul>
-
-				<hr />
+				<Navbar bg="light" expand="lg">
+					<Navbar.Brand href="#home">Vacation Hacker</Navbar.Brand>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Collapse id="basic-navbar-nav">
+						<Nav className="mr-auto">
+						<Nav.Link href="#home">Home</Nav.Link>
+						<Nav.Link href="#link">Login or Create an Account</Nav.Link>
+						<Nav.Link href="#link">User Info </Nav.Link>
+						</Nav>
+					</Navbar.Collapse>
+				</Navbar>
 
 				<Route exact path="/" component={Home} />
 				<Route path="/about" component={AboutComponent} />
